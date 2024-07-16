@@ -26,7 +26,7 @@ RUN apt-get -y install \
     ros-melodic-rslidar-driver ros-melodic-rslidar-msgs \ 
     ros-melodic-rslidar-pointcloud
 
-# Install Ceres-Solver, Pangolin, and Sophus
+# Download Ceres-Solver, Sophus, and Pangolin with dependencies
 WORKDIR /opt/local/lib/
 RUN wget https://github.com/ceres-solver/ceres-solver/archive/refs/tags/2.1.0.tar.gz \
     && tar zxf 2.1.0.tar.gz \

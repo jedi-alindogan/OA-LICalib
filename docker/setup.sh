@@ -1,4 +1,5 @@
 #!/bin/bash
+# Author: Jedidiah Alindogan (https://github.com/jedi-alindogan)
 
 set -xe
 
@@ -21,25 +22,22 @@ if ! grep -q "depend_pack.rosinstall" .rosinstall; then
 fi
 wstool update
 
-# Install the ceres-solver and pangolin packages
+# Install the ceres-solver, pangolin, and sophus packages
 cd /opt/local/lib/
 mkdir -p ceres-solver/build
 pushd ceres-solver/build 
 cmake -DCMAKE_BUILD_TYPE=Release .. && make -j$NUM_PARALLEL_BUILDS && make install
 popd
 
-# Make Pangolin
 mkdir -p Pangolin/build 
 pushd Pangolin/build
 cmake -DCMAKE_BUILD_TYPE=Release .. && make -j$NUM_PARALLEL_BUILDS
 popd
 
-# Make Sophus
 mkdir -p Sophus/build 
 pushd Sophus/build
 cmake -DCMAKE_BUILD_TYPE=Release .. && make -j$NUM_PARALLEL_BUILDS
 popd
-
 
 # Prepare ndt_omp separately
 cd /root/catkin_ws

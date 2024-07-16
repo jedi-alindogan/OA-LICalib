@@ -1,6 +1,6 @@
 #!/bin/bash
 # Author: TaeYoung Kim (https://github.com/Taeyoung95)
-
+# Edited: Jedidiah Alindogan (https://github.com/jedi-alindogan)
 
 # Set the project directory (PROJECT_DIR) as the parent directory of the current working directory
 PROJECT_DIR=$(dirname "$PWD")
