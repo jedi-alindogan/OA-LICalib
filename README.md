@@ -45,10 +45,9 @@ source ./devel/setup.bash
 *Requires Docker and NVIDIA Container Toolkit installation.*
 
 1. Create your config yaml file while making sure to specify the topics for the IMU and LiDAR. Moreover, make sure the `path_bag` parameter is set correctly. Note: `/root/catkin_ws/src/OA-LICalib/` is linked to the OA-LICalib project directory, so any bag and config paths should be set accordingly.
-2. Navigate to the `/docker` folder and adjust the permissions of `container_run.sh` and `setup.sh`
+2. Navigate to the `/docker` folder and adjust the permissions of `container_run.sh`
 ```
 chmod 755 container_run.sh
-chmod 755 setup.sh
 ```
 3. Build the docker image.
 ```
