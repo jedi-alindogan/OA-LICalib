@@ -25,7 +25,16 @@ IMAGE_NAME="$2"
 xhost +local:docker
 
 # Launch the nvidia-docker container with the provided image name and tag
-docker run --privileged -it \
+if [ "$(docker ps -aqf name=${CONTAINER_NAME})" ]; then
+  echo "Starting the container ${CONTAINER_NAME} from ${IMAGE_NAME}..." 
+  if [ ! "$(docker ps -qf name=${CONTAINER_NAME})" ]; then
+    docker start "$CONTAINER_NAME"
+  fi
+  docker exec -it "$CONTAINER_NAME" /bin/bash
+
+else
+  echo "Starting a new container ${CONTAINER_NAME} from ${IMAGE_NAME}..."
+  docker run --privileged -it \
            --gpus all \
            -e NVIDIA_DRIVER_CAPABILITIES=all \
            -e NVIDIA_VISIBLE_DEVICES=all \
@@ -37,3 +46,4 @@ docker run --privileged -it \
            --name="$CONTAINER_NAME" \
            --env="DISPLAY=$DISPLAY" \
            "$IMAGE_NAME" /bin/bash
+fi
