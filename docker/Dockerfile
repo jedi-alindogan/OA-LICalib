@@ -24,7 +24,8 @@ RUN apt-get -y install \
     ros-melodic-velodyne ros-melodic-velodyne-msgs \
     ros-melodic-rslidar \
     ros-melodic-rslidar-driver ros-melodic-rslidar-msgs \ 
-    ros-melodic-rslidar-pointcloud
+    ros-melodic-rslidar-pointcloud \
+    ros-melodic-rviz
 
 # Download Ceres-Solver, Sophus, and Pangolin with dependencies
 WORKDIR /opt/local/lib/
